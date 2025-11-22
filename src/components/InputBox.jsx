@@ -17,8 +17,8 @@ function InputBox({readOnly, label,options,currency,optionSelected }) {
 
     }
     return (
-        <div className="h-32 w-96 border border-gray-300 flex flex-col p-2 items-center gap-4">
-            <h3>{label}</h3>
+        <div className="rounded-lg bg-opacity-80 h-32 w-96 border-4 bg-red-800 flex flex-col p-2 items-center gap-2 border-black">
+            <h3 className="text-lg font-medium">{label}</h3>
             <div className="flex">
                 <input
                     type="number"
