@@ -17,7 +17,7 @@ This app allows users to convert between multiple **world currencies** and popul
 
 ##  Tech Stack
 - **Frontend:** React.js, HTML5, Tailwind CSS
-- **API:** ("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies{country_code}.json")
+- **API:** ("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json")
 - **Styling:** Tailwind CSS for modern, responsive design
 
 ---
