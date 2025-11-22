@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import Select from "react-select";
 
-const options = [
-    { value: "option1", label: "Option 1" },
-    { value: "option2", label: "Option 2" },
-    { value: "option3", label: "Option 3" },
-];
 
-export default function InputBox({label}) {
-    const [amount, setAmount] = useState("");
-    const [selectedOption, setSelectedOption] = useState(null);
+//https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json
+
+
+function InputBox({ label,options,currency,optionSelected }) {
+    const setOptions=options
+    const [amount, setAmount] = currency
+    const [selectedOption, setSelectedOption] = optionSelected 
     function handleChange(e) {
         if (e.target.value >= 0) {
             setAmount(e.target.value)
@@ -29,7 +28,7 @@ export default function InputBox({label}) {
 
                 <div className="flex-1">
                     <Select
-                        options={options}
+                        options={setOptions}
                         value={selectedOption}
                         onChange={setSelectedOption}
                         placeholder="Select..."
@@ -37,6 +36,9 @@ export default function InputBox({label}) {
                     />
                 </div>
             </div>
+            
         </div>
     );
 }
+
+export default memo(InputBox)
