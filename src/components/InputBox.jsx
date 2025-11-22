@@ -2,10 +2,10 @@ import { memo, useState } from "react";
 import Select from "react-select";
 
 
-//https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json
 
 
-function InputBox({ label,options,currency,optionSelected }) {
+
+function InputBox({readOnly, label,options,currency,optionSelected }) {
     const setOptions=options
     const [amount, setAmount] = currency
     const [selectedOption, setSelectedOption] = optionSelected 
@@ -20,10 +20,11 @@ function InputBox({ label,options,currency,optionSelected }) {
             <div className="flex">
                 <input
                     type="number"
-                    value={amount}
+                    value={amount || 0}
                     onChange={(e) => handleChange(e)}
                     placeholder="Enter currency..."
                     className="flex-1 mr-2 p-2 text-sm border border-gray-300 rounded"
+                    readOnly={readOnly && true}
                 />
 
                 <div className="flex-1">
