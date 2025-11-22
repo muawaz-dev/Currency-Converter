@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import Select from "react-select";
 
 
@@ -11,8 +11,10 @@ function InputBox({readOnly, label,options,currency,optionSelected }) {
     const [selectedOption, setSelectedOption] = optionSelected 
     function handleChange(e) {
         if (e.target.value >= 0) {
-            setAmount(e.target.value)
+            setAmount((e.target.value).replace(/^0+/, ""))
+            console.log("re render")
         }
+
     }
     return (
         <div className="h-32 w-96 border border-gray-300 flex flex-col p-2 items-center gap-4">

@@ -2,7 +2,6 @@ import React, { useEffect,useState } from 'react'
 import InputBox from '../components/InputBox'
 
 function Home({options}) {
-  let [result,setResult] = useState()
   let [fromCurrency,setFromCurrency] = useState(1)
   let [toCurrency,setToCurrency] = useState()
   let [fromSelected,setFromSelected] = useState({value:"usd" ,label:"US Dollars"})
@@ -10,7 +9,12 @@ function Home({options}) {
 
   function handleData(data){
     let a=data[fromSelected.value]
-    setToCurrency((fromCurrency*a[toSelected.value]).toFixed(2))
+    setToCurrency((fromCurrency*a[toSelected.value]).toFixed(4))
+  }
+
+  function handleClick(){
+    setFromSelected(toSelected)
+    setToSelected(fromSelected)
   }
 
   useEffect(()=>{
@@ -23,7 +27,7 @@ function Home({options}) {
       <div className='flex gap-8 flex-col justify-center items-center h-screen w-screen'>
         <InputBox readOnly={false} label="From" options={options} currency={[fromCurrency,setFromCurrency]} optionSelected={[fromSelected,setFromSelected]} />
         <InputBox readOnly={true} label="To" options={options} currency={[toCurrency,setToCurrency]} optionSelected={[toSelected,setToSelected]} />
-        
+        <button onClick={handleClick} className='bg-red-500 rounded-md p-1'>Inter-Change</button>
       </div>
     </>
   )
